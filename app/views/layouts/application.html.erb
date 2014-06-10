@@ -8,27 +8,29 @@
 </head>
 <body>
 
-  <div id="current_user">
-    <%= container_tag do %>
-      <%= row_tag do %>
-        <%= col_3_tag do %>
-          Current Logged User is : <%= current_user %>
-        <% end %>
+  <%= container_tag id: :current_user do %>
+    <%= row_tag do %>
+      <%= col_3_tag do %>
+        Current Logged User is : <%= current_user %>
+      <% end %>
 
-        <%= col_6_tag do %>
-          Log in as :
-          <% User.all.each do |user| %>
-            <%= link_to " #{ user }", log_in_path(id: user) %> -
-          <% end %>
-        <% end %>
-
-        <%= col_3_tag class: :text_right do %>
-          <%= link_to "Log out", log_out_path %>
+      <%= col_6_tag do %>
+        Log in as :
+        <% User.all.each do |user| %>
+          <%= link_to " #{ user }", log_in_path(id: user) %> -
         <% end %>
       <% end %>
-    <% end %>
-  </div>
 
+      <%= col_3_tag class: :text_right do %>
+        <%= link_to "Log out", log_out_path %>
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <%= container_3_tag [:compagnies, :users, :videos, :badges], id: :current_controller, rows: {cols: {class: 'text-center'}} do |controller| %>
+    <%= link_to controller, send("#{ controller }_path") %>
+  <% end %>
+  
   <%= yield %>
 
 </body>
