@@ -1,48 +1,50 @@
-## Badges
+## Badge Challenges Application
 
-### Fonctionnement de base
+### Overview of the application
 
-L'application représente un système minimaliste comparable à Vodeclic.
+This Application is a small Rails App that can be compared to a tiny Vodeclic App :)
 
-Il y a un modèle Entreprise, lié à des Utilisateurs. Les utilisateurs sont liés à des Videos (l'utilisateur a vu la vidéo), et à des Badges (l'utilisateur possède ce badge).
+You will find an "En**tre**prise" (=en**ter**prise) model, linked to "User" and those users are also linked to "Video" and to "Badge" models.
 
-Un seed est présent afin de générer les premières données.
+A seed is present to let you start with some datas.
+The UI Header let you logging as one of the four users present in the seed data.
+Once a User is logged-in, accessing the "video#show" action will *link* a Video to the User.
 
-Le header vous permet de vous connecter avec l'un des quatre utilisateurs déjà présents.
 
-Lorsqu'un utilisateur est loggué, le fait de visiter la page 'show' du controller 'video' associera cette vidéo à cet utilisateur, ce qui compte comme une vision.
+### Challenge 1: Show Badges that belongs to an Enterprise
 
-### EX 1 - Afficher les badges pour une Entreprise
+You need to modify the "compagnies#show" action in order to show badges associated to an Enterprise (through Users). The view should looks like "users#show":
+* Enterprise own a Badge once at least one of its users own one
+* For each Badge that an Enterprise own, you will have to show how many users own Badges
 
-Vous devez modifier l'action 'show' du controller 'compagnies' afin d'afficher les badges liés à cette entreprise, via les utilisateurs. L'aperçu de la vue doit ressembler à la vue 'users#show'.
+Notes:
+* CSS Stylesheets is already present in the application and use a "Grid" system. The application use Ruby helpers in order to generate corresponding HTML tags for the grid, take a look at the "users/show" view for some inspiration. You can use any block type collection. Helpers are provided by the [r_kit](https://github.com/Saphyr/r_kit) Gem (code is the documentation!)
+* A custom *decorator* logic is already implemented inside the Application - you don't need Gems to do that, if you want to understand how it works take a look at the "user" decorator.
 
-* Une entreprise possède un badge si au moins un de ses utilisateurs possède ce badge
-* Pour chaque badge que possède l'entreprise, vous devrez afficher combien de ses utilisateurs possèdent le badge
 
-Notes : 
+### Challenge 2: Link a Badge to a User
 
-* Le CSS déjà présent dans l'application utilise un système de 'grid'. L'application utilise des helpers ruby afin de générer automatiquement les tags HTML appropriés, il est fortement recommandé de vous inspirer le la vue 'user#show'. Vous pouvez utiliser n'importe que type de collection dans le bloc. Les helpers sont disponibles via la gem 'r_kit', qui ne possède pas de documentation
-* Un système de décorateur est déjà implémenté dans l'application. Nous n'avons utilisé aucune gem pour cela, vous pouvez vous inspirer du décorateur 'user' déjà existant
+The goal of this challenge is to define a logic that will automatically link a Badge to a User once required conditions are met.
+This logic has to be as much flexible as possible because additional Badges could be created internally, with different behaviors, so the integration of those new Badges has to be simple.
 
-### EX 2 - Associer un badge à un utilisateur
+Here is the obtained conditions for currently implemented Badges:
+* "Halfway" Badge: User has to have viewed at least two videos
+* "Allway" Badge: User has to have viewed all videos
+* "SpeedRun" Badge: User has to have viewed the "Ruby classes" video only
 
-Le but ici est de définir une mécanique qui permettra à l'application d'associer automatiquement un badge à un utilisateur, lorsque les conditions d'obtentions de ces badges sont remplies. Le système doit être le plus flexible possible, des badges supplémentaires peuvent être crées par l'équipe éditoriale, avec des conditions variées, il faut que l'intégration de ces nouveaux badges soit simple.
 
-Voici les conditions d'obtentions des badges déjà présents
-* Badge "HalfWay": un utilisateur doit avoir vu au moins deux vidéos
-* Badge "AllWay": un utilisateur doit avoir vu toutes les vidéos
-* Badge "SpeedRun" : un utilisateur doit avoir vu la vidéo "ruby classes" uniquement
+### Challenge 3: Rebuild the "viewed" mecanism
 
-### EX 3 - Revoir la mécanique des 'visions'
+The current "viewed" logic is too simple, you need to modify it and add a "play" button on the "video#show" view and then only trigger the "viewed" state once User clicked it (*Tips: use simple AJAX*).
 
-Le système de vison déjà implémenté n'est pas représentatif de l'action de l'utilisateur loggué. Il faut modifier l'implémentation existante en ajoutant d'abord un bouton 'play' sur la vue 'video#show'. C'est seulement lorsque l'utilisateur clique sur ce bouton que la nouvelle vision doit être enregistrée. La page ne doit pas se recharger, il est donc conseillé d'utiliser du Javascript/AJAX.
+This challenge is also a good opportunity to refactor the association between User and Video. For example today once a user watch multiple times the same video we create a new record each time - obviously this is not a great logic - you should add an "iteration" column on the joint table.
 
-Il faudra en profiter pour refactorer l'association entre un utilisateur et une vidéo. Aujourd'hui, lorsqu'un utilisateur regarde plusieurs fois la même vidéo, un nouveau record est créé à chaque fois. Nous voulons éviter ces "doublons" dans la base de données, et ajouter une colonne d'itération dans la table de jointure, afin d'enregistrer de nombre de vues.
 
-### Testing
+### Challenge 4: Adding tests using RSpec / Capybara
 
-Ajouter des tests avec RSpec et/ou Capybara
+Everything is in the title :)
 
-### Notes Additionnelles
 
-* Il y a une faute d'ortographe sur le scaffold "compagnies"  (qui devrait s'écrire "companies"), merci de passer outre.
+### Additional notes
+
+The "compagnies" scaffold is wrongly named, it should be named "companies". Don't bother with it.
