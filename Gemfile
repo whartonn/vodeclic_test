@@ -1,12 +1,13 @@
+ruby '2.2.2'
 source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.1'
+gem 'rails', '4.2.3'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.3'
+gem 'sass-rails', '~> 5.0.1'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
@@ -42,7 +43,7 @@ gem 'slim'
 gem 'pry'
 gem "binding_of_caller"
 gem "better_errors"
-gem 'compass-rails', '~> 1.1.7'
+gem 'compass-rails', '~> 2.0.4'
 gem "font-awesome-rails"
 gem 'r_kit', '~> 0.2.1.1'
 gem 'rspec-rails', '~> 3.0.0'
