@@ -1,5 +1,5 @@
 class UserDecorator < RKit::Decorator::Base
   def infos
-    "#{ self } - working for #{ compagny }"
+    "#{ self } - working for #{ company }"
   end
 end

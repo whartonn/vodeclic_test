@@ -19,15 +19,15 @@ badges = Badge.create [
   {name: 'SpeedRun', fa_symbol: 'bolt'},
 ]
 
-compagnies = Compagny.create [
+companies = Company.create [
   {name: 'Vodeclic'},
   {name: 'thoughtbot'},
   {name: 'Basecamp'},
 ]
 
 users = User.create [
-  {name: 'Thomas', compagny: compagnies.first, videos: videos, badges: badges[0..1]},
-  {name: 'Guillaume', compagny: compagnies.first, videos: videos[0..1], badges: [badges.first]},
-  {name: 'David Heinemeier Hansson', compagny: compagnies.second},
-  {name: 'Joe Ferris', compagny: compagnies.third, videos: [videos.fourth], badges: [badges.third]},
+  {name: 'Thomas', company: companies.first, videos: videos, badges: badges[0..1]},
+  {name: 'Guillaume', company: companies.first, videos: videos[0..1], badges: [badges.first]},
+  {name: 'David Heinemeier Hansson', company: companies.second},
+  {name: 'Joe Ferris', company: companies.third, videos: [videos.fourth], badges: [badges.third]},
 ]

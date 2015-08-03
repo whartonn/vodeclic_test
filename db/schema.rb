@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20140606143225) do
 
-  create_table "badge_users", force: true do |t|
+  create_table "badge_users", force: :cascade do |t|
     t.integer  "badge_id"
     t.integer  "user_id"
     t.datetime "created_at"
@@ -23,29 +23,29 @@ ActiveRecord::Schema.define(version: 20140606143225) do
   add_index "badge_users", ["badge_id"], name: "index_badge_users_on_badge_id"
   add_index "badge_users", ["user_id"], name: "index_badge_users_on_user_id"
 
-  create_table "badges", force: true do |t|
+  create_table "badges", force: :cascade do |t|
     t.string   "name"
     t.string   "fa_symbol"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "compagnies", force: true do |t|
+  create_table "companies", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "name"
-    t.integer  "compagny_id"
+    t.integer  "company_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "users", ["compagny_id"], name: "index_users_on_compagny_id"
+  add_index "users", ["company_id"], name: "index_users_on_company_id"
 
-  create_table "video_users", force: true do |t|
+  create_table "video_users", force: :cascade do |t|
     t.integer  "video_id"
     t.integer  "user_id"
     t.datetime "created_at"
@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 20140606143225) do
   add_index "video_users", ["user_id"], name: "index_video_users_on_user_id"
   add_index "video_users", ["video_id"], name: "index_video_users_on_video_id"
 
-  create_table "videos", force: true do |t|
+  create_table "videos", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   acts_as_decorables
 
-  belongs_to :compagny
+  belongs_to :company
 
   has_many :badge_users
   has_many :badges, through: :badge_users

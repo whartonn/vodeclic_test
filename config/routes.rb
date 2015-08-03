@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :users
 
-  resources :compagnies
+  resources :companies
 
   get '/log_in/:id' => 'application#log_in', as: :log_in
   get '/log_out' => 'application#log_out', as: :log_out

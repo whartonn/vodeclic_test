@@ -30,7 +30,7 @@
   </div>
 
   <div id="current_controller">
-    <%= container_3_tag [:compagnies, :users, :videos, :badges], id: :current_controller, rows: {cols: {class: 'text-center'}} do |controller| %>
+    <%= container_3_tag [:companies, :users, :videos, :badges], id: :current_controller, rows: {cols: {class: 'text-center'}} do |controller| %>
       <%= link_to controller, send("#{ controller }_path") %>
     <% end %>
   </div>

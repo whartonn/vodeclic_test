@@ -1,4 +1,4 @@
-class Compagny < ActiveRecord::Base
+class Company < ActiveRecord::Base
   has_many :users
 
   def to_s
