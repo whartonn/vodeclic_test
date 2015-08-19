@@ -13,4 +13,11 @@ RSpec.describe BadgesController, :type => :controller do
       expect(assigns(:badges)).to be_truthy
     end
   end
+  
+  describe "should GET new" do
+    it "retrieves the new page" do
+      get :new
+      expect(response).to have_http_status(:success)
+    end
+  end
 end
