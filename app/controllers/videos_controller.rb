@@ -10,10 +10,10 @@ class VideosController < ApplicationController
   # GET /videos/1
   # GET /videos/1.json
   def show
-    current_user.try :watch_video, @video
   end
 
   def play
+    current_user.try :watch_video, @video
   end
   
   # GET /videos/new
