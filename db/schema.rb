@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150819113454) do
+ActiveRecord::Schema.define(version: 20150819113732) do
 
   create_table "badge_users", force: :cascade do |t|
     t.integer  "badge_id"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20150819113454) do
     t.integer  "iteration",  default: 0
   end
 
+  add_index "video_users", ["user_id", "video_id"], name: "index_video_users_on_user_id_and_video_id", unique: true
   add_index "video_users", ["user_id"], name: "index_video_users_on_user_id"
   add_index "video_users", ["video_id"], name: "index_video_users_on_video_id"
 
