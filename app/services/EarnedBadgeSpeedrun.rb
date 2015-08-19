@@ -1,9 +1,4 @@
-class EarnedBadgeSpeedrun
-  attr_accessor :user
-  
-  def initialize(user_id)
-    @user = User.find(user_id)
-  end
+class EarnedBadgeSpeedrun < EarnedBadge
 
   def achieved?
     @user.videos.where(name: 'Ruby classes').size >= 1
