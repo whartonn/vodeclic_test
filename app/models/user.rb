@@ -14,7 +14,9 @@ class User < ActiveRecord::Base
   end
 
   def watch_video video
-    videos << video
+    watched = VideoUser.find_or_create_by(video_id: video.id, user_id: self.id)
+    watched.iteration += 1
+    watched.save
   end
 
   def watched? video
