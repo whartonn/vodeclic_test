@@ -20,4 +20,8 @@ class User < ActiveRecord::Base
   def watched? video
     videos.include? video
   end
+  
+  def link_with_badge(badge_id)
+    BadgeUser.find_or_create_by(badge_id: badge_id, user_id: self.id)
+  end
 end
