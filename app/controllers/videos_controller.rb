@@ -13,6 +13,9 @@ class VideosController < ApplicationController
     current_user.try :watch_video, @video
   end
 
+  def play
+  end
+  
   # GET /videos/new
   def new
     @video = Video.new

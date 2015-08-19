@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :videos
+  post '/videos/play/:id' => 'videos#play', as: :video_play
 
   resources :badges
 
