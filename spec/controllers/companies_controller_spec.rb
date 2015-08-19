@@ -8,9 +8,10 @@ RSpec.describe CompaniesController, :type => :controller do
   end
   
   describe "Company badges" do
-    it "must have at least one badge if a user owns one" do      
+    it "must have no badge if no user owns one" do      
       # todo: having trouble with loading FactoryGirl associations. moving on.
-      # @company = create(:company_1)
+      @company = Company.where(name: "thoughtbot")
+      # expect(@company.calculated_badges).to eq(0)
       # @user = create(:user_1)
     end
   end
