@@ -10,6 +10,9 @@
     <strong>Watched?:</strong>
     <%= current_user.watched? @video %>
   </p>
+  <p>
+    <%= button_to "Play", { action: "play" }, remote: true, form: { "data-type" => "json" } %>
+  </p>
 <% end %>
 
 <%= link_to 'Edit', edit_video_path(@video) %> |
