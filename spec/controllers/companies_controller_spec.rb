@@ -14,6 +14,7 @@ RSpec.describe CompaniesController, :type => :controller do
       # expect(@company.calculated_badges).to eq(0)
       # @user = create(:user_1)
     end
+    
   end
   
   

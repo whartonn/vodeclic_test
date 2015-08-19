@@ -61,12 +61,4 @@ RSpec.describe BadgesController, :type => :controller do
     end
   end
   
-  describe "Half-Way Badge" do
-    it "should not show before seeing two videos" do
-      load Rails.root + "db/seeds.rb"
-      # @user = User.where(name: "David Heinemeier Hansson")
-      visit '/log_in/#{@user.id}' #while logged in as DHH
-    end
-  end
-  
 end
