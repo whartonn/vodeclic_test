@@ -38,26 +38,25 @@ FactoryGirl.define do
   factory :user_1, class: User do
     name 'Thomas' 
     company :company_1
-    videos [:video_1,:video_2,:video_3,:video_4]
-    badges [:badge_1,:badge2]
+    # videos [:video_1,:video_2,:video_3,:video_4]
+    # badges [:badge_1,:badge2]
   end
-  factory :user_2, class: User do
-    name 'Guillaume' 
-    company :company_1
-    videos [:video_1,:video_2]
-    badges [:badge_1]
-  end
-  factory :user_3, class: User do
-    name 'David Heinemeier Hansson' 
-    company :company_2
-    videos [:video_4]
-    badges [:badge_3]
-  end
-  factory :user_4, class: User do
-    name 'Joe Ferris' 
-    company :company_2
-    videos [:video_4]
-    badges [:badge_3]
-  end
+  # factory :user_2, class: User do
+  #   name 'Guillaume' 
+  #   company :company_1
+  #   videos [:video_1,:video_2]
+  #   badges [:badge_1]
+  # end
+  # factory :user_3, class: User do
+  #   name 'David Heinemeier Hansson' 
+  #   company :company_2
+  #   videos [:video_4]
+  #   badges [:badge_3]
+  # end
+  # factory :user_4, class: User do
+  #   name 'Joe Ferris' 
+  #   company :company_2
+  #   videos [:video_4]
+  #   badges [:badge_3]
+  # end
 end
-
