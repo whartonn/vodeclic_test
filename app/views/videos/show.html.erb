@@ -8,10 +8,15 @@
 <% if current_user %>
   <p>
     <strong>Watched?:</strong>
-    <%= current_user.watched? @video %>
+    <span id="has_watched"><%= current_user.watched? @video %></span>
   </p>
   <p>
-    <%= button_to "Play", { action: "play" }, remote: true, form: { "data-type" => "json" } %>
+    <script>
+      $( "#play_button" ).click(function() {
+        alert( "click() for play called" );
+    });
+    </script
+    <%= button_to "Play", { action: "play" }, id: 'play_button', remote: true, form: { "data-type" => "json" } %>
   </p>
 <% end %>
 
