@@ -7,5 +7,7 @@ class VideoUser < ActiveRecord::Base
     def distribute_appropriate_badges
       badge = EarnedBadge::Speedrun.new(self.user.id)
       badge.achieved? ? badge.reward : nil
+      badge = EarnedBadge::Halfway.new(self.user.id)
+      badge.achieved? ? badge.reward : nil
     end
 end
