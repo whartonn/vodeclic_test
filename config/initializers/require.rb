@@ -1,2 +1,2 @@
 require 'EarnedBadge'
-require 'EarnedBadgeSpeedrun'
+require 'earned_badge/Speedrun'

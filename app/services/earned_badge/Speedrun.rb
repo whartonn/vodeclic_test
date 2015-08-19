@@ -1,4 +1,4 @@
-class EarnedBadgeSpeedrun < EarnedBadge
+class EarnedBadge::Speedrun < EarnedBadge
 
   def achieved?
     @user.videos.where(name: 'Ruby classes').size >= 1
