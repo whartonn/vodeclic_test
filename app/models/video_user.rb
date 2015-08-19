@@ -9,5 +9,8 @@ class VideoUser < ActiveRecord::Base
       badge.achieved? ? badge.reward : nil
       badge = EarnedBadge::Halfway.new(self.user.id)
       badge.achieved? ? badge.reward : nil
+      badge = EarnedBadge::Allway.new(self.user.id)
+      badge.achieved? ? badge.reward : nil
     end
+    
 end
